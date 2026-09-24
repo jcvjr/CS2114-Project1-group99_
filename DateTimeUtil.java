@@ -7,7 +7,7 @@ import java.time.format.*;
  *  Follow it with additional details about its purpose, what abstraction
  *  it represents, and how to use it.
  * 
- *  @author lquezadr
+ *  @author Leo, Nick, JC, Soren
  *  @version Sep 24, 2026
  */
 public class DateTimeUtil
