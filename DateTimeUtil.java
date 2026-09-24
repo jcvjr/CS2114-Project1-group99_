@@ -51,6 +51,13 @@ public class DateTimeUtil
     public boolean overlaps (LocalDateTime start1, int duration1,
         LocalDateTime start2, int duration2)
     {
+        LocalDateTime endTime1 = start1.plusMinutes(duration1);
+        LocalDateTime endTime2 = start2.plusMinutes(duration2);
+        
+        if (start1.isBefore(endTime2) && start2.isBefore(endTime1))
+            {
+            return true;
+            }
         return false;
     }
 
