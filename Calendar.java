@@ -72,14 +72,23 @@ public class Calendar {
 
     /**
      * Removes an event from the calendar.
-     * Holidays cannot be deleted.
      *
      * @param index
      *            the index of the event to delete
-     * @return true if the event was deleted successfully, false otherwise
+     * @return true if the event was deleted, false otherwise
      */
     public boolean deleteEvent(int index) {
-        return false;
+        // Checks if the index is invalid.
+        if (index < 0 || index >= events.size()) {
+            return false;
+        }
+        // Prevents holidays from being deleted.
+        if (events.get(index) instanceof Holiday) {
+            return false;
+        }
+        // Removes the event.
+        events.remove(index);
+        return true;
     }
 
 
