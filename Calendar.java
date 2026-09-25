@@ -51,16 +51,22 @@ public class Calendar {
 
 
     /**
-     * Replaces an existing event with an updated version.
+     * Replaces an existing event with an updated event.
      *
      * @param index
      *            the index of the event to edit
      * @param updated
      *            the updated event
-     * @return true if the event was edited successfully, false otherwise
+     * @return true if the event was updated, false if the index is invalid
      */
     public boolean editEvent(int index, Event updated) {
-        return false;
+        // Checks if the index is outside the valid range.
+        if (index < 0 || index >= events.size()) {
+            return false;
+        }
+        // Replaces the old event with the updated event.
+        events.set(index, updated);
+        return true;
     }
 
 
