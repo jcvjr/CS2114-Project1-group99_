@@ -1,4 +1,5 @@
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 
 // -------------------------------------------------------------------------
 /**
@@ -40,6 +41,7 @@ public class Event
     // ----------------------------------------------------------
     /**
      * Create a new Event object.
+     * 
      * @param dateTime
      * @param name
      * @param durationMin
@@ -53,14 +55,16 @@ public class Event
         priority = 0;
         allDay = false;
     }
+
+
     /*
-     * // ----------------------------------------------------------
-    /**
-     *  default constructor but it is all day.
+     * // ---------------------------------------------------------- /** default
+     * constructor but it is all day.
      */
     // ----------------------------------------------------------
     /**
      * Create a new Event object.
+     * 
      * @param dateTime
      * @param name
      * @param allDay
@@ -74,12 +78,15 @@ public class Event
         priority = 0;
         this.allDay = allDay;
     }
+
+
     /*
      * alternate constructor for event that does include category and priority
      */
     // ----------------------------------------------------------
     /**
      * Create a new Event object.
+     * 
      * @param dateTime
      * @param name
      * @param durationMin
@@ -104,12 +111,14 @@ public class Event
 
     // ----------------------------------------------------------
     /**
-     * alternate event constructor for if it is all day and has category and priority. 
-     * @param dateTime 
-     * @param name 
-     * @param allDay 
-     * @param category 
-     * @param priority 
+     * alternate event constructor for if it is all day and has category and
+     * priority.
+     * 
+     * @param dateTime
+     * @param name
+     * @param allDay
+     * @param category
+     * @param priority
      */
     public Event(
         LocalDateTime dateTime,
@@ -198,15 +207,19 @@ public class Event
         priority = newPriority;
     }
 
+
     // ----------------------------------------------------------
     /**
      * Place a description of your method here.
+     * 
      * @param all
      */
     public void setAllDay(boolean all)
     {
         allDay = all;
     }
+
+
     // ----------------------------------------------------------
     /**
      * returns the LocalDateTime dateTime of the event
@@ -229,7 +242,7 @@ public class Event
     {
         return name;
     }
-    
+
 
     // ----------------------------------------------------------
     /**
@@ -267,14 +280,26 @@ public class Event
     {
         return priority;
     }
-    
+
+
     // ----------------------------------------------------------
     /**
      * returns if it is all day
+     * 
      * @return allDay
      */
     public boolean getAllDay()
     {
         return allDay;
+    }
+
+    private static final DateTimeFormatter DISPLAY_TIME_FORMAT =
+        DateTimeFormatter.ofPattern("h:mm a");
+
+    public String toString()
+    {
+        return name + " on " + dateTime.toLocalDate() + " at "
+            + dateTime.toLocalTime().format(DISPLAY_TIME_FORMAT) + " ("
+            + category + ", priority " + priority + ")";
     }
 }

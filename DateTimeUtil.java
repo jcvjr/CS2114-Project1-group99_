@@ -23,7 +23,7 @@ public class DateTimeUtil
 
     // STRICT resolver style rejects wrong dates like 2026-02-30.
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter
-        .ofPattern("yyyy-MM-dd").withResolverStyle(ResolverStyle.STRICT);
+        .ofPattern("uuuu-MM-dd").withResolverStyle(ResolverStyle.STRICT);
     
     // STRICT resolver style rejects wrong times like 13:00 PM.
     private static final DateTimeFormatter TIME_FORMAT = DateTimeFormatter

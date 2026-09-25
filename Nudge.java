@@ -1,6 +1,5 @@
 import java.time.*;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 // -------------------------------------------------------------------------
 /**
@@ -62,7 +61,7 @@ public class Nudge
                 String date = scan.nextLine();
                 System.out.print("New time: ");
                 String time = scan.nextLine();
-                
+
                 try
                 {
                     event.setDate(DateTimeUtil.parseDateTime(date, time));
@@ -78,7 +77,7 @@ public class Nudge
                 for (int i = 0; i < all.size(); i++)
                 {
                     Event existing = all.get(i);
-                    
+
                     boolean overlap = DateTimeUtil.overlaps(
                         event.getDateTime(),
                         event.getDuration(),
@@ -114,14 +113,31 @@ public class Nudge
 
                 System.out.print("Duration (minutes): ");
                 int duration = scan.nextInt();
+                scan.nextLine();
+                
+                while (duration <= 0)
+                {
+                    System.out.print("Duration must be a positive number. Try again: ");
+                    duration = scan.nextInt();
+                    scan.nextLine();
+                }
 
                 System.out.print("Category: ");
                 String category = scan.nextLine();
 
                 System.out.print("Priority (1-5): ");
                 int priority = scan.nextInt();
+                scan.nextLine();
+                
+                while (priority < 1 || priority > 5)
+                {
+                    System.out
+                        .print("Priority must be between 1 and 5. Try again: ");
+                    priority = scan.nextInt();
+                    scan.nextLine();
+                }
 
-                return new Event(dateTime, title, priority,category,duration);
+                return new Event(dateTime, title, duration, category, priority);
 
             }
             catch (Exception e)
@@ -147,7 +163,8 @@ public class Nudge
             System.out.println("7) Sort by priority");
             System.out.println("8) Filter by category");
             System.out.println("9) Set category description");
-            System.out.println("10) Quit");
+            System.out.println("10) View category description");
+            System.out.println("11) Quit");
             System.out.print("Choose an option: ");
 
             int choice;
@@ -155,10 +172,12 @@ public class Nudge
             try
             {
                 choice = scan.nextInt();
+                scan.nextLine();
             }
-            catch (NumberFormatException e)
+            catch (InputMismatchException e)
             {
                 System.out.println("Please enter a number.");
+                scan.nextLine();
                 continue;
             }
 
@@ -169,7 +188,7 @@ public class Nudge
                 {
                     String result = activeCalendar.addEvent(event);
                     System.out.println(result);
-                    
+
                     if (!result.startsWith("Rejected: conflicts"))
                     {
                         break;
@@ -234,10 +253,12 @@ public class Nudge
                 try
                 {
                     editIndex = scan.nextInt();
+                    scan.nextLine();
                 }
                 catch (NumberFormatException e)
                 {
                     editIndex = -1;
+                    scan.nextLine();
                 }
                 Event updated = promptForEvent();
                 if (activeCalendar.editEvent(editIndex, updated))
@@ -253,7 +274,7 @@ public class Nudge
             else if (choice == 3)
             {
                 java.util.List<Event> forDelete = activeCalendar.viewAll();
-                
+
                 for (int i = 0; i < forDelete.size(); i++)
                 {
                     System.out.println(i + ": " + forDelete.get(i));
@@ -263,10 +284,12 @@ public class Nudge
                 try
                 {
                     deleteIndex = scan.nextInt();
+                    scan.nextLine();
                 }
                 catch (NumberFormatException e)
                 {
                     deleteIndex = -1;
+                    scan.nextLine();
                 }
                 if (activeCalendar.deleteEvent(deleteIndex))
                 {
@@ -311,9 +334,9 @@ public class Nudge
             else if (choice == 6)
             {
                 System.out.print("Week start date (yyyy-MM-dd): ");
-                
+
                 String weekInput = scan.nextLine();
-                
+
                 try
                 {
                     LocalDateTime dt =
@@ -333,11 +356,11 @@ public class Nudge
             else if (choice == 7)
             {
                 System.out.print("Descending? (y/n): ");
-                
+
                 boolean descending = scan.nextLine().equalsIgnoreCase("y");
-                
+
                 List<Event> sorted = activeCalendar.sortByPriority(descending);
-                
+
                 for (int i = 0; i < sorted.size(); i++)
                 {
                     System.out.println(i + ": " + sorted.get(i));
@@ -347,12 +370,12 @@ public class Nudge
             else if (choice == 8)
             {
                 System.out.print("Category: ");
-                
+
                 String filterCategory = scan.nextLine();
-                
+
                 java.util.List<Event> filtered =
                     activeCalendar.filterByCategory(filterCategory);
-                
+
                 for (int i = 0; i < filtered.size(); i++)
                 {
                     System.out.println(i + ": " + filtered.get(i));
@@ -363,16 +386,31 @@ public class Nudge
             {
                 System.out.print("Category: ");
                 String category = scan.nextLine();
-                
+
                 System.out.print("Description: ");
                 String description = scan.nextLine();
-                
+
                 activeCalendar.setCategoryDescription(category, description);
-                
+
                 System.out.println("Done!");
 
             }
             else if (choice == 10)
+            {
+                System.out.print("Category: ");
+                String category = scan.nextLine();
+                String description = activeCalendar.getCategoryDescription(category);
+                
+                if (description == null)
+                {
+                    System.out.println("No description set for that category.");
+                }
+                else
+                {
+                    System.out.println(description);
+                }
+            }
+            else if (choice == 11)
             {
                 running = false;
                 System.out.print("Goodbye!");
