@@ -3,6 +3,9 @@ import java.util.List;
 
 /**
  * Represents a calendar containing events, categories, and holidays.
+ * 
+ * @author Nicolas Marchese (nmarchese)
+ * @version 09.24.2026
  */
 public class Calendar {
 
