@@ -107,7 +107,7 @@ public class Nudge
                 System.out.print("Date (yyyy-MM-dd): ");
                 String date = scan.nextLine();
 
-                System.out.print("Time (HH:mm): ");
+                System.out.print("Time (hh:mm a, ex. 01:00 PM): ");
                 String time = scan.nextLine();
 
                 LocalDateTime dateTime = DateTimeUtil.parseDateTime(date, time);
@@ -294,7 +294,7 @@ public class Nudge
                 try
                 {
                     LocalDateTime dt =
-                        DateTimeUtil.parseDateTime(dateInput, "00:00");
+                        DateTimeUtil.parseDateTime(dateInput, "12:00 AM");
                     java.util.List<Event> byDate =
                         activeCalendar.viewByDate(dt);
                     for (int i = 0; i < byDate.size(); i++)
@@ -317,8 +317,8 @@ public class Nudge
                 try
                 {
                     LocalDateTime dt =
-                        DateTimeUtil.parseDateTime(weekInput, "00:00");
-                    java.util.List<Event> week = activeCalendar.viewByWeek(dt);
+                        DateTimeUtil.parseDateTime(weekInput, "12:00 AM");
+                    java.util.List<Event> week = activeCalendar.viewWeek(dt);
                     for (int i = 0; i < week.size(); i++)
                     {
                         System.out.println(i + ": " + week.get(i));
