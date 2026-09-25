@@ -46,7 +46,7 @@ public class DateTimeUtil
      * @param duration1
      * @param start2
      * @param duration2
-     * @return
+     * @return boolean whether events overlap
      */
     public static boolean overlaps (LocalDateTime start1, int duration1,
         LocalDateTime start2, int duration2)
