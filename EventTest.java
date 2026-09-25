@@ -23,6 +23,10 @@ public class EventTest extends student.TestCase
     
     //~ Constructors ..........................................................
     
+    // ----------------------------------------------------------
+    /**
+     * Create a new EventTest object.
+     */
     public EventTest()
     {
         
@@ -45,7 +49,7 @@ public class EventTest extends student.TestCase
     
     //test methods for getters
     /**
-     * test class for getendtime()
+     * test class for getEndTime()
      * */
     public void testGetEndTime()
     {
@@ -54,7 +58,7 @@ public class EventTest extends student.TestCase
     }
     
     /**
-     * test class for getdatetime()
+     * test class for getDateTime()
      * */
     public void testGetDateTime()
     {

@@ -9,6 +9,7 @@ import java.time.format.*;
  * @author Leo, Nick, JC, Xinchen(Soren)
  * @version Sep 24, 2026
  */
+
 public class DateTimeUtil
 {
     /**
@@ -24,7 +25,7 @@ public class DateTimeUtil
     // STRICT resolver style rejects wrong dates like 2026-02-30.
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter
         .ofPattern("uuuu-MM-dd").withResolverStyle(ResolverStyle.STRICT);
-    
+
     // STRICT resolver style rejects wrong times like 13:00 PM.
     private static final DateTimeFormatter TIME_FORMAT = DateTimeFormatter
         .ofPattern("hh:mm a").withResolverStyle(ResolverStyle.STRICT);
@@ -40,14 +41,14 @@ public class DateTimeUtil
      */
     public static LocalDateTime parseDateTime(String date, String time)
     {
-        
+
         // Reject a null or blank date before attempting to parse it.
         if (date == null || date.trim().isEmpty())
         {
             throw new IllegalArgumentException(
                 "There is no date entered. Expected " + DATE_FORMAT_HINT + ".");
         }
-        
+
         // Reject a null or blank time before attempting to parse it.
         if (time == null || time.trim().isEmpty())
         {
@@ -79,7 +80,7 @@ public class DateTimeUtil
                 "That time is not valid. Expected " + TIME_FORMAT_HINT + ".");
         }
 
-        return d.atTime(t);
+        return LocalDateTime.of(d,t);
     }
 
 
@@ -122,7 +123,7 @@ public class DateTimeUtil
         // Computes when each event ends based on its duration.
         LocalDateTime endTime1 = start1.plusMinutes(duration1);
         LocalDateTime endTime2 = start2.plusMinutes(duration2);
-        
+
         // Two time ranges overlap if each one starts before the other ends.
         if (start1.isBefore(endTime2) && start2.isBefore(endTime1))
         {
@@ -130,5 +131,4 @@ public class DateTimeUtil
         }
         return false;
     }
-
 }

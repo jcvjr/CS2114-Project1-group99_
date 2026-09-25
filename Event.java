@@ -295,7 +295,7 @@ public class Event
 
     private static final DateTimeFormatter DISPLAY_TIME_FORMAT =
         DateTimeFormatter.ofPattern("h:mm a");
-
+    @Override
     public String toString()
     {
         return name + " on " + dateTime.toLocalDate() + " at "
