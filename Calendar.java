@@ -93,24 +93,31 @@ public class Calendar {
 
 
     /**
-     * Returns all events in the calendar in order.
+     * Returns all events in the calendar.
      *
      * @return a list containing all events
      */
     public List<Event> viewAll() {
-        return null;
+        return new ArrayList<Event>(events);
     }
 
 
     /**
-     * Returns all events occurring on a given day.
+     * Returns all events occurring on the given date.
      *
      * @param date
      *            the date to view
-     * @return a list of events occurring on that day
+     * @return a list of events occurring on that date
      */
     public List<Event> viewByDate(LocalDateTime date) {
-        return null;
+        ArrayList<Event> eventsOnDay = new ArrayList<Event>();
+        // Adds events that occur on the same calendar date.
+        for (Event e : events) {
+            if (e.getDateTime().toLocalDate().equals(date.toLocalDate())) {
+                eventsOnDay.add(e);
+            }
+        }
+        return eventsOnDay;
     }
 
 
@@ -118,11 +125,22 @@ public class Calendar {
      * Returns all events occurring within a seven-day window.
      *
      * @param weekStart
-     *            the starting date and time of the week
-     * @return a list of events occurring during the seven-day window
+     *            the beginning of the seven-day window
+     * @return a list of events occurring during the week
      */
-    public List<Event> viewByWeek(LocalDateTime weekStart) {
-        return null;
+    public List<Event> viewWeek(LocalDateTime weekStart) {
+        ArrayList<Event> eventsInWeek = new ArrayList<Event>();
+        LocalDateTime weekEnd = weekStart.plusDays(7);
+
+        // Adds events between the start of the week and seven days later.
+        for (Event e : events) {
+            LocalDateTime eventTime = e.getDateTime();
+
+            if (!eventTime.isBefore(weekStart) && eventTime.isBefore(weekEnd)) {
+                eventsInWeek.add(e);
+            }
+        }
+        return eventsInWeek;
     }
 
 
