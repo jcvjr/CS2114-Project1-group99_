@@ -170,4 +170,17 @@ public class EventTest extends student.TestCase
         event.setAllDay(true);
         assertTrue(event.getAllDay());
     }
+    
+    // ----------------------------------------------------------
+    /**
+     * Place a description of your method here.
+     */
+    public void testToString()
+    {
+        Event dogWalking =
+            new Event(dateTime, "Dog Walking", 30, "Activity", 4);
+        String expected =
+            "Dog Walking on 2026-09-24 at 10:30 AM (Activity, priority 4)";
+        assertEquals(expected, dogWalking.toString());
+    }
 }
