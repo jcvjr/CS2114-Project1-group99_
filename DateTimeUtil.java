@@ -40,11 +40,11 @@ public class DateTimeUtil
      * Place a description of your method here.
      * @param dt
      * @param now
-     * @return
+     * @return a boolean deciding whether the dt is before now
      */
     public boolean isPast(LocalDateTime dt, LocalDateTime now)
     {
-        return false;
+        return dt.isBefore(now);
     }
 
 
