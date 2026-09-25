@@ -6,7 +6,7 @@ import student.TestCase;
  * This is the test class for event class. It tests the constructors and methods
  * of the Event class to ensure that they behave as expected.
  * 
- * @author Xinchen Zhou
+ * @author Xinchen Zhou (Soren)
  * @version Sep 25, 2026
  */
 
