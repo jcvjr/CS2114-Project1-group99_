@@ -28,7 +28,7 @@ public class DateTimeUtil
 
     // STRICT resolver style rejects wrong times like 13:00 PM.
     private static DateTimeFormatter TIME_FORMAT = DateTimeFormatter
-        .ofPattern("hh:mm a").withResolverStyle(ResolverStyle.STRICT);
+        .ofPattern("hh:mm a").withResolverStyle(ResolverStyle.SMART);
 
     // ----------------------------------------------------------
     /**
