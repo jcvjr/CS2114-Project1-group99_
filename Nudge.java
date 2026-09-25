@@ -121,7 +121,7 @@ public class Nudge
                 System.out.print("Priority (1-5): ");
                 int priority = scan.nextInt();
 
-                return new Event(dateTime, title, priority);
+                return new Event(dateTime, title, priority,category,duration);
 
             }
             catch (Exception e)
@@ -169,6 +169,7 @@ public class Nudge
                 {
                     String result = activeCalendar.addEvent(event);
                     System.out.println(result);
+                    
                     if (!result.startsWith("Rejected: conflicts"))
                     {
                         break;
@@ -317,7 +318,7 @@ public class Nudge
                 {
                     LocalDateTime dt =
                         DateTimeUtil.parseDateTime(weekInput, "00:00");
-                    java.util.List<Event> week = activeCalendar.viewWeek(dt);
+                    java.util.List<Event> week = activeCalendar.viewByWeek(dt);
                     for (int i = 0; i < week.size(); i++)
                     {
                         System.out.println(i + ": " + week.get(i));
