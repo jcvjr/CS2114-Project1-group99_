@@ -37,7 +37,7 @@ public class DateTimeUtil
 
     // ----------------------------------------------------------
     /**
-     * Place a description of your method here.
+     * Return true if the entered dt is before now
      * @param dt
      * @param now
      * @return a boolean deciding whether the dt is before now
