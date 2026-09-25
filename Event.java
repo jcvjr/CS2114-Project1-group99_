@@ -37,6 +37,13 @@ public class Event
      * the priority or the category.
      */
 
+    // ----------------------------------------------------------
+    /**
+     * Create a new Event object.
+     * @param dateTime
+     * @param name
+     * @param durationMin
+     */
     public Event(LocalDateTime dateTime, String name, int durationMin)
     {
         this.dateTime = dateTime;
@@ -51,6 +58,13 @@ public class Event
     /**
      *  default constructor but it is all day.
      */
+    // ----------------------------------------------------------
+    /**
+     * Create a new Event object.
+     * @param dateTime
+     * @param name
+     * @param allDay
+     */
     public Event(LocalDateTime dateTime, String name, boolean allDay)
     {
         this.dateTime = dateTime;
@@ -62,6 +76,15 @@ public class Event
     }
     /*
      * alternate constructor for event that does include category and priority
+     */
+    // ----------------------------------------------------------
+    /**
+     * Create a new Event object.
+     * @param dateTime
+     * @param name
+     * @param durationMin
+     * @param category
+     * @param priority
      */
     public Event(
         LocalDateTime dateTime,
@@ -82,6 +105,11 @@ public class Event
     // ----------------------------------------------------------
     /**
      * alternate event constructor for if it is all day and has category and priority. 
+     * @param dateTime 
+     * @param name 
+     * @param allDay 
+     * @param category 
+     * @param priority 
      */
     public Event(
         LocalDateTime dateTime,
@@ -103,7 +131,7 @@ public class Event
     /**
      * This method is to get the end time of any event
      * 
-     * @returnr end time
+     * @return end time
      */
     public LocalDateTime getEndTime()
     {
