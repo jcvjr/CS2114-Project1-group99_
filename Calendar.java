@@ -1,5 +1,8 @@
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Represents a calendar containing events, categories, and holidays.
@@ -9,6 +12,19 @@ import java.util.List;
  */
 public class Calendar {
 
+    private Map<String, String> categoryDescriptions; // Stores a description
+                                                      // for each category.
+    private ArrayList<Event> events; // Stores all events in the calendar.
+
+    /**
+     * Constructs an empty Calendar with no events or category descriptions.
+     */
+    public Calendar() {
+        categoryDescriptions = new HashMap<String, String>();
+        events = new ArrayList<Event>();
+    }
+
+
     /**
      * Attempts to add an event to the calendar.
      *
@@ -17,7 +33,8 @@ public class Calendar {
      * @return a message indicating whether the event was added successfully
      */
     public String addEvent(Event e) {
-        return null;
+        events.add(e);
+        return "Event added successfully.";
     }
 
 
