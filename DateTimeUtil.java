@@ -6,7 +6,7 @@ import java.time.format.*;
  * Write a one-sentence summary of your class here. Follow it with additional
  * details about its purpose, what abstraction it represents, and how to use it.
  * 
- * @author Leo, Nick, JC, Soren
+ * @author Leo, Nick, JC, Xinchen(Soren)
  * @version Sep 24, 2026
  */
 public class DateTimeUtil
