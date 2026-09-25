@@ -11,12 +11,27 @@ import java.time.*;
 public class Event
 {
 
-    private LocalDateTime dateTime; // date and time that event is
-    private String category; // optional category field
-    private String name; // event name
+    /**
+     * Extended by holiday
+     */
+    protected LocalDateTime dateTime; // date and time that event is
+    /**
+     * Extended by holiday
+     */
+    protected String category; // optional category field
+    /**
+     * Extended by holiday
+     */
+    protected String name; // event name
     private int durationMin; // duration of event in minutes
-    private int priority; // 1-5 signifying the importance of that event
-    private boolean allDay; // true if even is all day false if not
+    /**
+     * Extended by holiday
+     */
+    protected int priority; // 1-5 signifying the importance of that event
+    /**
+     * Extended by holiday
+     */
+    protected boolean allDay; // true if even is all day false if not
     /*
      * This is the default constructor for the event class This does not include
      * the priority or the category.
