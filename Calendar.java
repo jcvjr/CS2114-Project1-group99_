@@ -145,27 +145,47 @@ public class Calendar {
 
 
     /**
-     * Returns the events sorted by priority.
+     * Returns events sorted by priority.
      *
      * @param descending
-     *            true to sort from highest to lowest priority,
-     *            false to sort from lowest to highest priority
+     *            whether to sort from highest to lowest priority
      * @return a list of events sorted by priority
      */
     public List<Event> sortByPriority(boolean descending) {
-        return null;
+        ArrayList<Event> sortedEvents = new ArrayList<Event>(events);
+        // Sorts events by comparing their integer priorities.
+        for (int i = 0; i < sortedEvents.size(); i++) {
+            for (int j = i + 1; j < sortedEvents.size(); j++) {
+                int priority1 = sortedEvents.get(i).getPriority();
+                int priority2 = sortedEvents.get(j).getPriority();
+                if ((!descending && priority1 > priority2) || (descending
+                    && priority1 < priority2)) {
+                    Event temp = sortedEvents.get(i);
+                    sortedEvents.set(i, sortedEvents.get(j));
+                    sortedEvents.set(j, temp);
+                }
+            }
+        }
+        return sortedEvents;
     }
 
 
     /**
-     * Returns all events belonging to the specified category.
+     * Returns all events in the specified category.
      *
      * @param category
-     *            the category to filter by
-     * @return a list of events in the specified category
+     *            the category to search for
+     * @return a list of events in the category
      */
     public List<Event> filterByCategory(String category) {
-        return null;
+        ArrayList<Event> matchingEvents = new ArrayList<Event>();
+        // Adds events whose category matches the requested category.
+        for (Event event : events) {
+            if (category.equals(event.getCategory())) {
+                matchingEvents.add(event);
+            }
+        }
+        return matchingEvents;
     }
 
 
@@ -178,30 +198,40 @@ public class Calendar {
      *            the description of the category
      */
     public void setCategoryDescription(String category, String description) {
+        categoryDescriptions.put(category, description);
     }
 
 
     /**
-     * Returns the stored description for a category.
+     * Returns the description for a category.
      *
      * @param category
      *            the category name
-     * @return the description associated with the category
+     * @return the description for the category
      */
     public String getCategoryDescription(String category) {
-        return null;
+        return categoryDescriptions.get(category);
     }
 
 
     /**
-     * Returns events that are currently due.
+     * Returns events that start at the given time.
      *
      * @param now
      *            the current date and time
-     * @return a list of events that are due
+     * @return a list of events starting now
      */
     public List<Event> checkDueNow(LocalDateTime now) {
-        return null;
+        ArrayList<Event> dueEvents = new ArrayList<Event>();
+
+        // Adds events that start exactly at the given time.
+        for (Event event : events) {
+            if (event.getDateTime().equals(now)) {
+                dueEvents.add(event);
+            }
+        }
+
+        return dueEvents;
     }
 
 
