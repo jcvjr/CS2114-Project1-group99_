@@ -10,6 +10,7 @@ import java.util.Map;
  * @author Nicolas Marchese (nmarchese)
  * @version 09.24.2026
  */
+
 public class Calendar {
 
     private Map<String, String> categoryDescriptions; // Stores a description
