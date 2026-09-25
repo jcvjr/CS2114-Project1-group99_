@@ -33,6 +33,18 @@ public class Calendar {
      * @return a message indicating whether the event was added successfully
      */
     public String addEvent(Event e) {
+        LocalDateTime now = LocalDateTime.now();
+        // Prevents events from being scheduled in the past.
+        if (DateTimeUtil.isPast(e.getDateTime(), now)) {
+            return "Event cannot be added because it is in the past.";
+        }
+        // Checks the new event against every existing event for overlap.
+        for (Event existingEvent : events) {
+            if (DateTimeUtil.overlaps(e.getDateTime(), e.getDuration(),
+                existingEvent.getDateTime(), existingEvent.getDuration())) {
+                return "Event conflicts with " + existingEvent.getName() + ".";
+            }
+        }
         events.add(e);
         return "Event added successfully.";
     }
