@@ -15,19 +15,19 @@ public class DateTimeUtil
     /**
      * The expected format and example when entering a date.
      */
-    public static final String DATE_FORMAT_HINT =
+    public static String DATE_FORMAT_HINT =
         "yyyy-MM-dd (example: 2026-09-17)";
     /**
      * The expected format and example when entering a time.
      */
-    public static final String TIME_FORMAT_HINT = "hh:mm a (example: 01:00 PM)";
+    public static String TIME_FORMAT_HINT = "hh:mm a (example: 01:00 PM)";
 
     // STRICT resolver style rejects wrong dates like 2026-02-30.
-    private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter
+    private static DateTimeFormatter DATE_FORMAT = DateTimeFormatter
         .ofPattern("uuuu-MM-dd").withResolverStyle(ResolverStyle.STRICT);
 
     // STRICT resolver style rejects wrong times like 13:00 PM.
-    private static final DateTimeFormatter TIME_FORMAT = DateTimeFormatter
+    private static DateTimeFormatter TIME_FORMAT = DateTimeFormatter
         .ofPattern("hh:mm a").withResolverStyle(ResolverStyle.STRICT);
 
     // ----------------------------------------------------------
@@ -50,7 +50,7 @@ public class DateTimeUtil
         }
 
         // Reject a null or blank time before attempting to parse it.
-        if (time == null || time.trim().isEmpty())
+        else if (time == null || time.trim().isEmpty())
         {
             throw new IllegalArgumentException(
                 "There is no time entered. Expected " + TIME_FORMAT_HINT + ".");

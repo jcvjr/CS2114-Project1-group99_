@@ -40,7 +40,7 @@ public class Nudge
         {
             String result = activeCalendar.addEvent(event);
             System.out.println(result);
-            if (!result.contains("Rejected: conflicts"))
+            if (!result.contains("conflicts"))
             {
                 break;
             }

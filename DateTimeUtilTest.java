@@ -47,11 +47,10 @@ public class DateTimeUtilTest
      */
     public void testParseDateTimeNullDate()
     {
-
         Exception exception = null;
         try
         {
-            DateTimeUtil.parseDateTime(null, "01:00 PM");
+            DateTimeUtil.parseDateTime(null, "1:30 PM");
         }
         catch (IllegalArgumentException e)
         {
