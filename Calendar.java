@@ -234,10 +234,53 @@ public class Calendar {
 
 
     /**
-     * Loads the standard U.S. holidays into the calendar.
+     * Loads built-in holidays into the calendar.
      */
     public void loadHolidays() {
-        return;
+        events.add(new Holiday(LocalDateTime.of(2026, 10, 12, 0, 0),
+            "Columbus Day"));
+
+        events.add(new Holiday(LocalDateTime.of(2026, 10, 31, 0, 0),
+            "Halloween"));
+
+        events.add(new Holiday(LocalDateTime.of(2026, 11, 3, 0, 0),
+            "Election Day"));
+
+        events.add(new Holiday(LocalDateTime.of(2026, 11, 11, 0, 0),
+            "Veterans Day"));
+
+        events.add(new Holiday(LocalDateTime.of(2026, 11, 26, 0, 0),
+            "Thanksgiving"));
+
+        events.add(new Holiday(LocalDateTime.of(2026, 11, 27, 0, 0),
+            "Black Friday"));
+
+        events.add(new Holiday(LocalDateTime.of(2026, 12, 24, 0, 0),
+            "Christmas Eve"));
+
+        events.add(new Holiday(LocalDateTime.of(2026, 12, 25, 0, 0),
+            "Christmas Day"));
+
+        events.add(new Holiday(LocalDateTime.of(2026, 12, 31, 0, 0),
+            "New Year's Eve"));
+
+        events.add(new Holiday(LocalDateTime.of(2027, 1, 1, 0, 0),
+            "New Year's Day"));
+
+        events.add(new Holiday(LocalDateTime.of(2027, 1, 18, 0, 0),
+            "Martin Luther King Jr. Day"));
+
+        events.add(new Holiday(LocalDateTime.of(2027, 2, 2, 0, 0),
+            "Groundhog Day"));
+
+        events.add(new Holiday(LocalDateTime.of(2027, 2, 14, 0, 0),
+            "Valentine's Day"));
+
+        events.add(new Holiday(LocalDateTime.of(2027, 2, 15, 0, 0),
+            "Presidents' Day"));
+
+        events.add(new Holiday(LocalDateTime.of(2027, 3, 17, 0, 0),
+            "St. Patrick's Day"));
     }
 
 }
