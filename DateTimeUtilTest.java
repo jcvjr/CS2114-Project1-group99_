@@ -3,8 +3,8 @@ import student.TestCase;
 
 // -------------------------------------------------------------------------
 /**
- * Write a one-sentence summary of your class here. Follow it with additional
- * details about its purpose, what abstraction it represents, and how to use it.
+ * Parses date/time strings into LocalDateTime objects and provides helper
+ * checks for comparing and detecting overlaps between date/time values.
  * 
  * @author JC, Leo, Soren, Nick
  * @version Sep 25, 2026
