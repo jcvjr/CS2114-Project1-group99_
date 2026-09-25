@@ -7,7 +7,7 @@ import java.time.format.*;
  *  Follow it with additional details about its purpose, what abstraction
  *  it represents, and how to use it.
  * 
- *  @author Leo, Nick, JC, Soren
+ *  @author Leo, Nick, JC, Xinchen(Soren)
  *  @version Sep 24, 2026
  */
 public class DateTimeUtil
@@ -15,14 +15,23 @@ public class DateTimeUtil
 
     // ----------------------------------------------------------
     /**
-     * Place a description of your method here.
+     * Have date and time input as String and convert String input into 
+     * LocalDateTime Object
+     * 
+     * Expected Format:
+     * date: yyyy-mm-dd
+     * time: hh:mm
+     * 
      * @param date
      * @param time
-     * @return
+     * @return LocalDateTime Object of entered date and time
      */
     public LocalDateTime parseDateTime(String date, String time)
     {
-        return null;
+        LocalDate localDate = LocalDate.parse(date);
+        LocalTime localTime = LocalTime.parse(time);
+        
+        return LocalDateTime.of(localDate, localTime);
     }
 
 
