@@ -223,14 +223,12 @@ public class Calendar {
      */
     public List<Event> checkDueNow(LocalDateTime now) {
         ArrayList<Event> dueEvents = new ArrayList<Event>();
-
         // Adds events that start exactly at the given time.
         for (Event event : events) {
             if (event.getDateTime().equals(now)) {
                 dueEvents.add(event);
             }
         }
-
         return dueEvents;
     }
 
