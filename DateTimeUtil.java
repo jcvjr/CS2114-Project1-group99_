@@ -33,7 +33,7 @@ public class DateTimeUtil
      * @param now
      * @return
      */
-    public boolean isPast(LocalDateTime dt, LocalDateTime now)
+    public static boolean isPast(LocalDateTime dt, LocalDateTime now)
     {
         if (dt.isBefore(now)) {
             return true;
