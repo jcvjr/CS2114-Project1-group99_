@@ -20,7 +20,7 @@ public class DateTimeUtil
      * @param time
      * @return
      */
-    public LocalDateTime parseDateTime(String date, String time)
+    public static LocalDateTime parseDateTime(String date, String time)
     {
         return null;
     }
@@ -48,7 +48,7 @@ public class DateTimeUtil
      * @param duration2
      * @return
      */
-    public boolean overlaps (LocalDateTime start1, int duration1,
+    public static boolean overlaps (LocalDateTime start1, int duration1,
         LocalDateTime start2, int duration2)
     {
         LocalDateTime endTime1 = start1.plusMinutes(duration1);

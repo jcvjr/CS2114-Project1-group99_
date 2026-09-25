@@ -170,6 +170,11 @@ public class Event
         priority = newPriority;
     }
 
+    // ----------------------------------------------------------
+    /**
+     * Place a description of your method here.
+     * @param all
+     */
     public void setAllDay(boolean all)
     {
         allDay = all;
@@ -208,8 +213,7 @@ public class Event
     {
         if (!allDay)
             return durationMin;
-        else
-            return 0;
+        return 0;
     }
 
 
