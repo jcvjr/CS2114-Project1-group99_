@@ -35,6 +35,9 @@ public class DateTimeUtil
      */
     public boolean isPast(LocalDateTime dt, LocalDateTime now)
     {
+        if (dt.isBefore(now)) {
+            return true;
+        }
         return false;
     }
 
